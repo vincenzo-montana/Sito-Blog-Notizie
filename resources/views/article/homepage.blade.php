@@ -22,7 +22,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
             <a class="btn btn-primary" href="#">View Project</a>
             @auth
-                <a href="{{route('article.create')}}"><button class="btn btn-success">aggiungi salsiccia</button></a>
+                <a href="{{route('article.create')}}"><button class="btn btn-success">aggiungi</button></a>
             @endauth
           </div>
         </div>
