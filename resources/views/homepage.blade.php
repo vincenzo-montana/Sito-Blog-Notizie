@@ -1,27 +1,29 @@
 <x-main>
     <div class="container">
-
       @auth
-        
-        
         <!-- Page Heading -->
         <div>
-          
           <h1 class="mt-5">Ultime notizie</h1>
-        </div>
-        
-        <!-- Project One -->
-        <div class="row bgAsia">
-          <div class="col-md-7">
-            <a href="#">
-              <img class="img-fluid rounded mb-3 mb-md-0" src="https://via.placeholder.com/600x230" alt="">
-            </a>
+          <!-- Project One -->
+          <div class="row bgAsia">
+            <div class="col-md-7">
+              <a href="#">
+                @foreach ($article as $articles)
+                  {{$articles->title}} 
+                
+                
+                {{-- <img class="img-fluid rounded mb-3 mb-md-0" src="{{Storage::url($article->image)}} " alt=""> --}}
+                @endforeach
+              </a>
+            </div>
+            <div class="col-md-5">
+              <h3>10 Cose da vedere in provincia di Palermo che forse non conosci</h3>
+              <p>In questo articolo ti consigliamo 10 cose da vedere in provincia di Palermo, che secondo noi sono imperdibili (non è una classifica ma soltanto una lista).
+              </p>
+              <a class="btn btn-primary" href="#">View Project</a>
+            </div>
           </div>
-          <div class="col-md-5">
-            <h3>10 Cose da vedere in provincia di Palermo che forse non conosci</h3>
-            <p>In questo articolo ti consigliamo 10 cose da vedere in provincia di Palermo, che secondo noi sono imperdibili (non è una classifica ma soltanto una lista).
-            </p>
-            <a class="btn btn-primary" href="#">View Project</a>
+        </div>
         @endauth
         @auth
             <a href="{{route('article.create')}}"><button class="btn btn-success">aggiungi</button></a>

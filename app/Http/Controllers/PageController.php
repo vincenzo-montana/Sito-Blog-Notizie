@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function register() {
+    public function homepage(){
+        return view('homepage');
+    }
+    public function register(){
         return view('auth.register');
     }
     public function login() {
