@@ -19,3 +19,213 @@ color: white;
 .btn-custom:hover {
 background-color: #0056b3;
 }
+*{
+    font-family: 'Switzer', sans-serif;
+}
+:root{
+    --rich-black: rgba(3, 7, 30, 1);
+    --chocolate-cosmos: rgba(55, 6, 23, 1);
+    --rosewood: rgba(106, 4, 15, 1);
+    --penn-red: rgba(157, 2, 8, 1);
+    --engineering-orange: rgba(208, 0, 0, 1);
+    --sinopia: rgba(220, 47, 2, 1);
+    --persimmon: rgba(232, 93, 4, 1);
+    --princeton-orange: rgba(244, 140, 6, 1);
+    --orange-web: rgba(250, 163, 7, 1);
+    --selective-yellow: rgba(255, 186, 8, 1);
+    
+    --asia: rgb(181, 232, 225) ;
+    --bogota: rgb(124, 230, 226);
+    --columbia: rgba(68, 230, 225, 0.733) ;
+    --danimarca: rgb(13, 225, 227) ;
+    --equador: rgb(3, 216, 230) ;
+    --finlandia: rgb(1, 197, 239) ;
+    --georgia: rgb(2, 179, 238) ;
+    --honolulu: rgb(6, 160, 223) ;
+    --india: rgb(17, 128, 192) ;
+    --libano: rgb(26, 102, 143) ;
+    --mongolia: rgb(34, 80, 116) ;
+    --niger: rgb(40, 67, 101) ;
+    --oregon: rgb(52, 56, 58) ;
+}
+
+.bgRichBlack{
+    background-color: var(--rich-black);
+}
+.bgChocolateCosmos{
+    background-color: var(--chocolate-cosmos);
+}
+.bgRosewood{
+    background-color: var(--rosewood);
+}
+.bgPennRed{
+    background-color: var(--penn-red);
+}
+.bgEngineeringOrange{
+    background-color: var(--engineering-orange);
+}
+.bgSinopia{
+    background-color: var(--sinopia);
+}
+.bgPersimmon{
+    background-color: var(--persimmon);
+}
+.bgPrincetonOrange{
+    background-color: var(--princeton-orange);
+}
+.bgOrangeWeb{
+    background-color: var(--orange-web);
+}
+.bgSelectiveYellow{
+    background-color: var(--selective-yellow);
+}
+
+
+.bgAsia{
+    background-color: var(--asia);
+}
+.bgBogota{
+    background-color: var(--bogota);
+}
+.bgColumbia{
+    background-color: var(--columbia);
+}
+.bgDanimarca{
+    background-color: var(--danimarca);
+}
+.bgEquador{
+    background-color: var(--equador);
+}
+.bgFinlandia{
+    background-color: var(--finlandia);
+}
+.bgGeorgia{
+    background-color: var(--georgia);
+}
+.bgHonolulu{
+    background-color: var(--honolulu);
+}
+.bgIndia{
+    background-color: var(--india);
+}
+.bgLibano{
+    background-color: var(--libano);
+}
+.bgMongolia{
+    background-color: var(--mongolia);
+}
+.bgNiger{
+    background-color: var(--niger);
+}
+.bgOregon{
+    background-color: var(--oregon);
+}
+body{
+    background-color: var(--niger);
+}
+/* navbar */
+.logo{
+    height: 6vh;
+    width: 7vw;
+}
+.scrolledNavbar{
+    margin: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(2px) saturate(200%);
+    -webkit-backdrop-filter: blur(2px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.navbar{
+    height: 10vh;
+    transition: 2.5s;
+}
+.custom-text-color{
+    color: var(--persimmon) !important;
+}
+
+
+
+
+
+h1{
+    color: var(--asia);
+    margin-top: 40px;
+}
+h2{
+    color: var(--selective-yellow);
+}
+h3{
+    font-size: 150%;
+    color: rgb(0, 102, 255);
+}
+p{
+    color: var(--persimmon);
+    margin-top: 40px;
+}
+
+header{
+    height: 120vh;
+    background-image: url('./img/golor.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    z-index: 9;
+}
+.title{
+    height: 85vh;
+    padding: 15vh;
+    margin-top: 15vh;
+}
+.imgheader{
+    height: 50vh;
+    width:30vw;
+    padding: 15vh;
+    margin-top: 15vh;
+}
+.bgImgSection1{
+    height: 100vh; 
+    background-image: url(./img/colori-mare-golfo-orosei-sardegna-1024x700.webp);
+    background-repeat: no-repeat;
+    background-size:cover;
+    z-index: 9;
+}
+.StyleAccordions{
+    backdrop-filter: blur(2px) saturate(200%);
+    -webkit-backdrop-filter: blur(2px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.cardAnnunce {
+    display: flex;
+    height: 28vh;
+    width: 260px;
+    padding: 1.25vh;
+    margin: 1.25vh;
+    backdrop-filter: blur(8px) saturate(200%);
+    -webkit-backdrop-filter: blur(8px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.cardImg{
+    height: 25vh;
+    border-radius: 12px;
+}
+.cardInfo{
+    margin-left: 10px
+    ;
+    height: 120px;
+    width: 80px;
+}
+.titleCard{
+    font-size:large;
+}
+.category{
+    font-size: large;
+    text-decoration: underline;
+}
+.price{
+    font-size: small;
+    font-weight: bold;
+}

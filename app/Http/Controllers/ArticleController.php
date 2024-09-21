@@ -45,7 +45,7 @@ class ArticleController extends Controller
             'title'=>$request->title,
             'subtitle'=>$request->subtitle,
             'body'=>$request->body,
-            'image'=>$path_image,
+            'image'=>$request->image,
             'user_id'=>Auth::user()->id ,
             'category_id'=>$request->category_id,
         ]);
@@ -82,4 +82,6 @@ class ArticleController extends Controller
     {
         //
     }
+    
 }
+
