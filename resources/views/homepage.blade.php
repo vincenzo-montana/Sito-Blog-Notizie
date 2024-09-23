@@ -3,13 +3,13 @@
       <!-- Page Heading -->
       @auth
       <div class="row justify-content-between top">
-
         <!-- Project One -->
         <div class="row bgAsia col-md-8 ">
           <h1 class="m-1">Ultime notizie</h1>
+          @foreach ($articles as $article)
           <div class="card col-md-12">
-            <div class="card text-bg-dark">
-              <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="card-img" alt="...">
+            <div class="card text-bg-dark"> 
+              <img src="{{Storage::url($article->image)}}" class="card-img" alt="...">
               <div class="card-img-overlay">
                   <h3 class="card-title">
                     <a class="btn text-light" href="#">
@@ -25,6 +25,7 @@
               </div>
             </div>
           </div>  
+          @endforeach
         </div>
           <!-- Project Two -->
         <div class="card col-md-3">
