@@ -1,5 +1,5 @@
 
-    <nav class="navbar p-0 fixed-top navbar-expand-lg bgAsia" id="navbar">
+    <nav class="navbar p-0 fixed-top d-flex navbar-expand-lg bgAsia" id="navbar">
         <div class="container-fluid">
 
             <a class="navbar-brand p-0 custom-text-color" href="#">

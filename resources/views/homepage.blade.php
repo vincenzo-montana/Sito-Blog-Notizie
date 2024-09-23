@@ -1,30 +1,47 @@
 <x-main>
     <div class="container">
+      <!-- Page Heading -->
       @auth
-        <!-- Page Heading -->
-        <div>
-          <h1 class="mt-5">Ultime notizie</h1>
-          <!-- Project One -->
-          <div class="row bgAsia">
-            <div class="col-md-7">
-              <a href="#">
-                @foreach ($article as $articles)
-                  {{$articles->title}} 
-                
-                
-                {{-- <img class="img-fluid rounded mb-3 mb-md-0" src="{{Storage::url($article->image)}} " alt=""> --}}
-                @endforeach
-              </a>
+      <div class="row justify-content-between top">
+
+        <!-- Project One -->
+        <div class="row bgAsia col-md-8 ">
+          <h1 class="m-1">Ultime notizie</h1>
+          <div class="card col-md-12">
+            <div class="card text-bg-dark">
+              <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="card-img" alt="...">
+              <div class="card-img-overlay">
+                  <h3 class="card-title">
+                    <a class="btn text-light" href="#">
+                    10 Cose da vedere in provincia di Palermo che forse non conosci</a>
+                  </h3>
+                  <p>In questo articolo ti consigliamo 10 cose da vedere in provincia di Palermo, che secondo noi sono imperdibili (non è una classifica ma soltanto una lista).</p>
+                  <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                  @if (session('message'))
+                    <div class="alert alert-success">
+                      {{session('message')}}
+                    </div>     
+                  @endif
+              </div>
             </div>
-            <div class="col-md-5">
-              <h3>10 Cose da vedere in provincia di Palermo che forse non conosci</h3>
-              <p>In questo articolo ti consigliamo 10 cose da vedere in provincia di Palermo, che secondo noi sono imperdibili (non è una classifica ma soltanto una lista).
-              </p>
-              <a class="btn btn-primary" href="#">View Project</a>
+          </div>  
+        </div>
+          <!-- Project Two -->
+        <div class="card col-md-3">
+          <div class="card text-bg-dark">
+            <img src="{{asset('images/hatsune_miku_zatsune.jpg')}}" class="card-img" alt="...">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is
+              {{--  a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. --}}
+            </p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
             </div>
           </div>
         </div>
-        @endauth
+      </div>
+      @endauth
+
         @auth
             <a href="{{route('article.create')}}"><button class="btn btn-success">aggiungi</button></a>
             
@@ -45,7 +62,7 @@
               <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="d-block w-10" alt="...">
             </div>
             <div class="carousel-item">
-                  <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="d-block w-10" alt="...">
+                  <img src="{{ asset('images/hatsune_miku_zatsune.jpg') }}" class="d-block w-10" alt="...">
               </div>
               <div class="carousel-item">
                 <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="d-block w-10" alt="...">
