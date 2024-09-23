@@ -8,15 +8,10 @@
     
   </head>
   <body>
-
-    <x-navbar />
-    
-    {{$slot}}
-
-    
-    <div>
-    <x-footer />
-    </div>
-
+      <main>
+        <x-navbar />
+        {{$slot}}
+      </main>
+      <x-footer />
   </body>
 </html>

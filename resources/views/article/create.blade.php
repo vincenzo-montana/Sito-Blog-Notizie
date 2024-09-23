@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="form-container">
                 <h2 class="form-title mb-4">Crea un nuovo articolo</h2>
-                <form action="{{route('article.store')}}" enctype="multipart/form-data" method="POST">
+                <form action="{{route('article.store')}}" class="card p-5 shadow" enctype="multipart/form-data" method="POST">
                     @csrf
                     <!-- Titolo Articolo -->
                     <div class="mb-3">
