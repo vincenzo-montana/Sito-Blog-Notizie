@@ -37,7 +37,7 @@ class ArticleController extends Controller
         $path_image = '';
         if ($request->hasFile('image')) {
             $name = $request->file('image')->getClientOriginalName();
-            $path_image = $request->file('image')->storeAs('images/'.$name, 'public');
+            $path_image = $request->file('image')->store('images/'.$name .'.jpg', 'public');
 
             // 'title', 'subtitle', 'body', 'image','user_id', 'category_id'
     }
@@ -56,7 +56,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('article.show' ,compact('article'));
     }
 
     /**
