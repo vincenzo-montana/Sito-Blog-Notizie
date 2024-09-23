@@ -14,10 +14,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $article = Article::all();
+        $articles = Article::all();
         $categories = Category::all();
-
-        return view('homepage', compact('article', 'categories'));
+        
+        return view('homepage', compact('articles', 'categories'));
     }
 
     /**
@@ -37,7 +37,7 @@ class ArticleController extends Controller
         $path_image = '';
         if ($request->hasFile('image')) {
             $name = $request->file('image')->getClientOriginalName();
-            $path_image = $request->file('image')->storeAs('public/images', $name);
+            $path_image = $request->file('image')->storeAs('images/'.$name, 'public');
 
             // 'title', 'subtitle', 'body', 'image','user_id', 'category_id'
     }

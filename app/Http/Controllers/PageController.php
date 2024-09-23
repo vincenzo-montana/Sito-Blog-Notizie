@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function homepage(){
-        return view('homepage');
+        return redirect(route('article.index'));
     }
     public function register(){
         return view('auth.register');
