@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function homepage(){
-        return redirect(route('article.index'));
+        
+        $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
+        return view('homepage', compact('articles'));
     }
     public function register(){
         return view('auth.register');
@@ -16,12 +18,15 @@ class PageController extends Controller
     public function login() {
         return view('auth.login');
     }
+    public function create(){
+        return view('article.create');
+    }
     
 
 
-    public function home(){
+    public function archivio(){
 
-        $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
-        return view('home', compact('articles'));
+        return redirect(route('article.index'));
     }
+
 }

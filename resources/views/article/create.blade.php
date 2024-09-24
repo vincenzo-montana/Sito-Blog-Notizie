@@ -1,4 +1,8 @@
 <x-main>
+    
+    @auth
+        
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -23,7 +27,8 @@
                         </div>
                         <!-- Categoria Articolo -->
                         <select class="form-select" aria-label="default select" name="category_id">
-                            <option selected>select category </option>
+                            <option selected>Select category </option>
+
                             @foreach ($categories as $category )
                         
                             <option value="{{$category->id}}">{{$category->name}}  </option>
@@ -63,4 +68,7 @@
         </div>
     </div>
 </div>
+
+@endauth
+
 </x-main>

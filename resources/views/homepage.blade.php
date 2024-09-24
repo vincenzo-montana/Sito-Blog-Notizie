@@ -2,9 +2,41 @@
     <div class="container">
       <!-- Page Heading -->
       @auth
+      
+      <div class="container pt-5 ">
+        <div class="row justify-content-evenly"> 
+            @foreach ($articles as $article )
+            <div class="col-3  mb-3 mt-5 ">
+   
+        
+    <div class="cardAnnunce " style="width: 18rem;">
+        <img src="{{Storage::url($article->image)}}" class="cardImg" alt="...">
+        <div class="cardInfo">
+          <h5 class="card-title"> {{$article->title}}</h5>
+          <p class="card-subtitle">{{$article->subtitle}}</p>
+          <p class="small text-muted"> Categoria: <a href="" class="text-capitalize text-muted">{{$article->category->name}}</a></p>
+        {{-- qua poi mettiamo la data  --}}
+        {{-- <p class="card-text"><small>{{$article->created_at->format('d/m/Y')}} <br> da {{$article->user->name}}</small></p> --}}
+       
+        <a href="{{route('article.show', $article)}}" class="btn btn-primary">per saperne di piu </a>
+
+
+       
+                    </div>
+                    
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+
+
       <div class="row justify-content-between top">
+
         <!-- Project One -->
-        <div class="row bgAsia col-md-8 ">
+
+        {{-- <div class="row bgAsia col-md-8 ">
           <h1 class="m-1">Ultime notizie</h1>
           @foreach ($articles as $article)
           <div class="card col-md-12">
@@ -17,8 +49,9 @@
                   </h3>
                   <p class="card-subtitle">{{$article->subtitle}}</p>
                   <p class="small text-muted"> Categoria: <a href="" class="text-capitalize text-muted">{{$article->category->name}}</a></p>
-                  {{-- qua poi mettiamo la data  --}}
-                  {{-- <p class="card-text"><small>{{$article->created_at->format('d/m/Y')}} <br> da {{$article->user->name}}</small></p> --}}
+
+                  <p class="card-text"><small>{{$article->created_at->format('d/m/Y')}} <br> da {{$article->user->name}}</small></p>
+
                   @if (session('message'))
                     <div class="alert alert-success">
                       {{session('message')}}
@@ -28,27 +61,23 @@
             </div>
           </div>  
           @endforeach
-        </div>
+        </div> --}}
           <!-- Project Two -->
-        <div class="card col-md-3">
+        {{-- <div class="card col-md-3">
           <div class="card text-bg-dark">
             <img src="{{asset('images/hatsune_miku_zatsune.jpg')}}" class="card-img" alt="...">
             <div class="card-img-overlay">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is
-              {{--  a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. --}}
             </p>
               <p class="card-text"><small>Last updated 3 mins ago</small></p>
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       @endauth
 
-        @auth
-            <a href="{{route('article.create')}}"><button class="btn btn-success">aggiungi</button></a>
-            
-        @endauth
+
 
           </div>
         </div>

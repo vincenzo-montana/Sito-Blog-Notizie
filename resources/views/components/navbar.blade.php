@@ -14,6 +14,24 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('homepage')}}">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{route('create')}}">Crea</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{route('archivio')}}">Archivio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categorie
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach ($categories as $category)
+                            <li><a href="{{route('bycategory', $category)}}">{{$category->name}}</a></li>
+                                
+                            @endforeach
+                        </ul>
+                      </li>
+
                     @auth
                     @endauth
                 </ul>
@@ -36,7 +54,7 @@
                             @csrf
                             <li class="nav-item">
                                 <div>
-                                    <button class="nav-link" type="submit"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i></button> 
+                                    <button class="nav-link" type="submit">Logout</button> 
                                 </div>
                                 {{-- <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">logout</a> --}}
                             </li>

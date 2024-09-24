@@ -3,11 +3,10 @@
 
 
 <div class=" container pt-5 mb-5">
-<h1> maamma</h1>
-{{$article->title}}
+<h1>{{$article->title}}</h1>
 {{$article->subtitle}}
 {{$article->body}}
-{{Storage::url($article->image)}}
+<img src="{{Storage::url($article->image)}}" alt="sesso">
 
 </div>
 </x-main>

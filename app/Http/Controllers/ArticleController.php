@@ -82,6 +82,11 @@ class ArticleController extends Controller
     {
         //
     }
+
+    public function byCategory(Category $category){
+        $articles=$category->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.bycategory', compact('category', 'articles'));
+    }
     
 }
 
