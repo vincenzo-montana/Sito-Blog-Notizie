@@ -43,6 +43,12 @@
                     <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">Register</a>
                         </li>
+                        
+                            
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{route('careers')}}">Lavora con noi</a>
+                        </li>
+                        
                         @endguest
                         @auth
                         <span class="nav-link margin-0">
@@ -50,12 +56,14 @@
                                 Benvenuto {{Auth::user()->name}}
                             </h5>
                         </span>
+                        
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <li class="nav-item">
                                 <div>
                                     <button class="nav-link" type="submit">Logout</button> 
                                 </div>
+                                
                                 {{-- <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">logout</a> --}}
                             </li>
                         </form>

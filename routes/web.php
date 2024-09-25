@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class, 'homepage'])->name('homepage');
@@ -19,3 +20,11 @@ Route::get('/article/category/{category}', [ArticleController::class, 'byCategor
 
 //rotta che ci restituisce nella vista i tuoi articoli gli articoli associati all'utente autenticato 
 Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('user');
+
+// Rotta GET per il Lavora con noi
+Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
+
+
+//ROTTA POST per il lavora con noi
+
+Route::post('/careers/submit',[PublicController::class, 'careerSsubmit'])->name('careers.submit');
