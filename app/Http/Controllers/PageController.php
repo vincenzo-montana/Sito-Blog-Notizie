@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    //funzione che ci ritorna nella home gli ultimi 4 articoli creati
     public function homepage(){
         
         $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
@@ -18,15 +19,10 @@ class PageController extends Controller
     public function login() {
         return view('auth.login');
     }
-    public function create(){
-        return view('article.create');
-    }
     
-
-
     public function archivio(){
 
-        return redirect(route('article.index'));
+        return view('archivio');
     }
 
 }

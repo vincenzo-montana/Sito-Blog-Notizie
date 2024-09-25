@@ -15,7 +15,7 @@
                         <a class="nav-link" aria-current="page" href="{{route('homepage')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{route('create')}}">Crea</a>
+                        <a class="nav-link" aria-current="page" href="{{route('article.create')}}">Crea</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('archivio')}}">Archivio</a>

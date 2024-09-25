@@ -7,7 +7,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">{{$category->name}}</h5>
-              <a href="{{'article.show'}}" class="btn btn-primary">Scopri di più</a>
+              <a href="{{route('article.show', $article)}}" class="btn btn-primary">per saperne di piu </a>
             </div>
           </div>
         </div>

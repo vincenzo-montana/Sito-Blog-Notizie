@@ -4,8 +4,11 @@
     @foreach ($articles as $article)
     <div class="card col-md-12">
       <div class="card text-bg-dark"> 
-        <img src="{{Storage::url($article->image)}}" class="card-img" alt="descrizione img">
+        <img src="{{Storage::url($article->image)}}" class="cardImg" alt="descrizione img">
         <div class="card-img-overlay">
+          <h2>
+            <a href="{{route('user',$article->user)}}">{{$article->user->name}}</a>
+          </h2>
             <h3 class="card-title"> 
               <a class="btn text-light" href="#">
                 {{$article->title}}</a>

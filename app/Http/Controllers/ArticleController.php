@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -82,10 +83,14 @@ class ArticleController extends Controller
     {
         //
     }
-
+    
     public function byCategory(Category $category){
         $articles=$category->articles()->orderBy('created_at', 'desc')->get();
         return view('article.bycategory', compact('category', 'articles'));
+    }
+    public function user(User $user){
+        $articles=$user->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.user', compact('user', 'articles'));
     }
     
 }
