@@ -1,11 +1,16 @@
 <x-main>
-  @auth
-    @if (session('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
+    @if (session('alert'))
+        <div class="alert alert-danger">
+            {{ session('alert') }}
         </div>
     @endif
-  @endauth
+    @auth
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+    @endauth
     <div class="container">
         <!-- Page Heading -->
         @auth
@@ -14,7 +19,7 @@
                 <div class="row justify-content-evenly">
                     @foreach ($articles as $article)
                         <div class="col-3  mb-3 mt-5 ">
-                            {{-- <div class="cardAnnunce " style="width: 18rem;"> --}}
+                            {{-- <div class="cardAnnunce "style="width: 18rem;"> --}}
                             <img src="{{ Storage::url($article->image) }}" class="cardImg" alt="...">
                             <div class="d-flex flex-column mt-1">
                                 <h5 class="card-title"> {{ $article->title }}</h5>
@@ -32,7 +37,7 @@
                     @endforeach
                 </div>
             </div>
-            </div>
+        </div>
 
 
 
