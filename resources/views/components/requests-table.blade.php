@@ -1,3 +1,4 @@
+{{-- componente formato da tabella per gestire le richieste per far diventare l'utente amministratore, revisore o redattore  --}}
 <table class="table">
     <thead>
         <tr>
@@ -14,7 +15,32 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <button class="btn btn-secondary">attiva {{ $role }}</button>
+                    @switch($role)
+                        @case('amministratore')
+                            <form action="{{ route('admin.setadmin', $user) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-secondary">attiva {{ $role }}</button>
+                            </form>
+                        @break
+
+                        @case('revisore')
+                            <form action="{{ route('admin.setrevisor', $user) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-secondary">attiva {{ $role }}</button>
+                            </form>
+                        @break
+
+                        @case('redattore')
+                            <form action="{{ route('admin.setwriter', $user) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-secondary">attiva {{ $role }}</button>
+
+                            </form>
+                        @break
+                    @endswitch
                 </td>
             </tr>
         @endforeach

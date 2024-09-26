@@ -25,6 +25,10 @@ Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('us
 //Metodo grouping , gruppo di rotte che verrà protetto dal middelware creato e gestione di una rotta che porterà l'admin alla sua dashboard personale
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    //rotte con metodo post per far diventare un utente admin , revisor o writer
+    Route::patch('/set-admin/{user}', [AdminController::class, 'setadmin'])->name('admin.setadmin');
+    Route::patch('/set-revisor/{user}', [AdminController::class, 'setrevisor'])->name('admin.setrevisor');
+    Route::patch('/set-writer/{user}', [AdminController::class, 'setwriter'])->name('admin.setwriter');
 });
 // Rotta GET per il Lavora con noi
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');

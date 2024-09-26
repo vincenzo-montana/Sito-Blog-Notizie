@@ -52,7 +52,7 @@ class PublicController extends Controller implements HasMiddleware
             break;
     }
 
-    // $user->update();
+    $user->update();
 
     session()->flash('success', 'Candidatura inviata con successo!');
     return redirect(route('homepage'))->with('message', 'Mail inviata con successo!');
