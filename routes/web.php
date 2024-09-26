@@ -33,4 +33,3 @@ Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/submit',[PublicController::class, 'careerSsubmit'])->name('careers.submit');
 
 
-
