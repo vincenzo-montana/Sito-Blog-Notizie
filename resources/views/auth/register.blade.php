@@ -15,36 +15,31 @@
                                     {{ $message }}
                                 @enderror
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" name="email" value="{{ old('email') }}"
-                                        placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="floatingInput" name="email"
+                                        value="{{ old('email') }}" placeholder="name@example.com">
                                     <label for="floatingInput">Email address</label>
                                     @error('email')
-                                    {{ $message }}
-                                @enderror
+                                        {{ $message }}
+                                    @enderror
 
 
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword" name="password" value="{{ old('passsword') }}"
-                                        placeholder="Password">
+                                    <input type="password" class="form-control" id="floatingPassword" name="password"
+                                        value="{{ old('passsword') }}" placeholder="Password">
                                     <label for="floatingPassword">Password</label>
                                     @error('password')
-                                    {{ $message }}
-                                @enderror
+                                        {{ $message }}
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="floatingPassword"
-                                        name="password_confirmation" placeholder="Confirmation Password">
+                                        name="password_confirmation" placeholder="Confirmation Password"
+                                        value="{{ old('passsword_confirmation') }}">
                                     <label for="floatingPassword">Confirm Password</label>
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
+                                    @error('password')
+                                        {{ $message }}
+                                    @enderror
                                 </div>
 
                                 <div class="form-check mb-3">

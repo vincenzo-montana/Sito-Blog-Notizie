@@ -148,7 +148,12 @@ body{
 
 
 
-
+a{
+    text-decoration: none;
+}
+h5,h4{
+    color: #f8f9fa;
+}
 h1{
     color: var(--engineering-orange);
     margin-top: 20px;
@@ -209,15 +214,13 @@ header{
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .cardImg{
-    height: 25vh;
-    width: 25vh;
+    height: 50vh;
+    width: 100vh;
     border-radius: 12px;
 }
 .cardInfo{
-    margin-left: 10px
-    ;
-    height: 120px;
-    width: 80px;
+    height: 35vh;
+    width: 60vh;
 }
 .titleCard{
     font-size:large;

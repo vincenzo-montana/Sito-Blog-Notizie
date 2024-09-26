@@ -24,12 +24,12 @@
                     </li>
                     {{-- da vedere se funziona e poi non compare sulla navbar ...mah!  --}}
                     @auth
-                    {{-- @if (Auth::user()->is_admin) --}}
+                    @if (Auth::user()->is_admin)
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                     </li>
                         
-                    {{-- @endif --}}
+                    @endif
                     @endauth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,9 +63,9 @@
                         @endguest
                         @auth
                         <span class="nav-link margin-0">
-                            <h5>
+                            <p>
                                 Benvenuto {{Auth::user()->name}}
-                            </h5>
+                            </p>
                         </span>
                         
                         <form action="{{ route('logout') }}" method="POST">

@@ -19,7 +19,7 @@ Route::get('/archivio', [PageController::class,'archivio'])->name('archivio');
 //rotta che ci restitusice nella vista bycatgory gli articoli più recenti associati ad ogni categoria 
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('bycategory');
 
-//rotta che ci restituisce nella vista  gli articoli associati all'utente autenticato 
+//rotta che ci restituisce nella vista user gli articoli associati all'utente autenticato 
 Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('user');
 
 //Metodo grouping , gruppo di rotte che verrà protetto dal middelware creato e gestione di una rotta che porterà l'admin alla sua dashboard personale

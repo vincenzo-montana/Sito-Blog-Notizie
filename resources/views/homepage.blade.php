@@ -1,9 +1,11 @@
 <x-main>
+    {{-- messaggio di non essere autorizzato ad accedere alla dashboard se non si è amministratore  --}}
     @if (session('alert'))
         <div class="alert alert-danger">
             {{ session('alert') }}
         </div>
     @endif
+    {{-- messaggio di avvenuta creazione articolo --}}
     @auth
         @if (session('message'))
             <div class="alert alert-success">
@@ -11,7 +13,7 @@
             </div>
         @endif
     @endauth
-    <div class="container">
+    {{-- <div class="container">
         <!-- Page Heading -->
         @auth
 
@@ -19,15 +21,13 @@
                 <div class="row justify-content-evenly">
                     @foreach ($articles as $article)
                         <div class="col-3  mb-3 mt-5 ">
-                            {{-- <div class="cardAnnunce "style="width: 18rem;"> --}}
                             <img src="{{ Storage::url($article->image) }}" class="cardImg" alt="...">
                             <div class="d-flex flex-column mt-1">
                                 <h5 class="card-title"> {{ $article->title }}</h5>
                                 <p class="card-subtitle">{{ $article->subtitle }}</p>
-                                <p class="small text-muted"> Categoria: <a href=""
+                                <p class="small text-muted"> Categoria: <a
+                                        href="{{ route('bycategory', $article->category) }}"
                                         class="text-capitalize text-muted">{{ $article->category->name }}</a></p>
-                                {{-- qua poi mettiamo la data  --}}
-                                {{-- <p class="card-text"><small>{{$article->created_at->format('d/m/Y')}} <br> da {{$article->user->name}}</small></p> --}}
                                 <div>
                                     <a href="{{ route('article.show', $article) }}" class="btn btn-primary">scopri di
                                         più </a>
@@ -39,59 +39,44 @@
             </div>
         </div>
 
+    @endauth --}}
+    <div class="container">
 
-
-        <div class="row justify-content-between top">
-
-            <!-- Project One -->
-
-            {{-- <div class="row bgAsia col-md-8 ">
-          <h1 class="m-1">Ultime notizie</h1>
-          @foreach ($articles as $article)
-          <div class="card col-md-12">
-            <div class="card text-bg-dark"> 
-              <img src="{{Storage::url($article->image)}}" class="card-img" alt="descrizione img">
-              <div class="card-img-overlay">
-                  <h3 class="card-title"> 
-                    <a class="btn text-light" href="#">
-                      {{$article->title}}</a>
-                  </h3>
-                  <p class="card-subtitle">{{$article->subtitle}}</p>
-                  <p class="small text-muted"> Categoria: <a href="" class="text-capitalize text-muted">{{$article->category->name}}</a></p>
-
-                  <p class="card-text"><small>{{$article->created_at->format('d/m/Y')}} <br> da {{$article->user->name}}</small></p>
-
-                  @if (session('message'))
-                    <div class="alert alert-success">
-                      {{session('message')}}
-                    </div>     
-                  @endif
-              </div>
+        <!-- Page Heading -->
+        <h1 class="my-5">
+            <small> Benvenuto nella homepage</small>
+        </h1>
+        <!-- Project One -->
+        @foreach ($articles as $article)
+            <div class="row mb-4">
+                <div class="col-md-7">
+                    <a href="#">
+                        <img class="img-fluid rounded mb-3 mb-md- cardImg" src="{{ Storage::url($article->image) }}"
+                            alt="">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <h3>{{ $article->title }}</h3>
+                    <h4>{{ $article->subtitle }}</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem
+                        expedita
+                        laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos
+                        perspiciatis atque eveniet unde.</p>
+                    <div class="d-flex">
+                        <h5>Categoria : <a href="{{ route('bycategory', $article->category) }}">
+                            {{ $article->category->name }}</h5>
+                        </a>
+                    </div>
+                    <a class="btn btn-primary" href="{{ route('article.show', $article) }}">Scopri di più</a>
+                </div>
             </div>
-          </div>  
-          @endforeach
-        </div> --}}
-            <!-- Project Two -->
-            {{-- <div class="card col-md-3">
-          <div class="card text-bg-dark">
-            <img src="{{asset('images/hatsune_miku_zatsune.jpg')}}" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is
-            </p>
-              <p class="card-text"><small>Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-      </div> --}}
-        @endauth
+        @endforeach
 
 
 
-    </div>
-    </div>
-    {{-- carousel --}}
-    <div class="container mt-5 p-5 -vh-50 bgHonolulu">
+
+        {{-- carousel --}}
+        {{-- <div class="container mt-5 p-5 -vh-50 bgHonolulu">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -125,6 +110,6 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    </div> --}}
 
 </x-main>
