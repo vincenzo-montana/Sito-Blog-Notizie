@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class, 'homepage'])->name('homepage');
@@ -18,10 +19,18 @@ Route::get('/archivio', [PageController::class,'archivio'])->name('archivio');
 //rotta che ci restitusice nella vista bycatgory gli articoli più recenti associati ad ogni categoria 
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('bycategory');
 
-//rotta che ci restituisce nella vista i tuoi articoli gli articoli associati all'utente autenticato 
+//rotta che ci restituisce nella vista  gli articoli associati all'utente autenticato 
 Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('user');
 
 //Metodo grouping , gruppo di rotte che verrà protetto dal middelware creato e gestione di una rotta che porterà l'admin alla sua dashboard personale
 Route::middleware('admin')->group(function(){
-    Route::get('/admin/dashboard', [AdminController::class, 'dasboard'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
+// Rotta GET per il Lavora con noi
+Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
+
+//ROTTA POST per il lavora con noi
+Route::post('/careers/submit',[PublicController::class, 'careerSsubmit'])->name('careers.submit');
+
+
+
