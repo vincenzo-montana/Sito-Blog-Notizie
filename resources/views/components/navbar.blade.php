@@ -47,8 +47,8 @@
                     @endauth
                 </ul>
                 <ul class="navbar-nav ms-auto">
-
-                    @if (Auth::user()->is_revisor)
+                    
+                    @if (Auth::user() && Auth::user()->is_revisor)
 
                     <li> 
                         <a href="{{route('revisor.dashboard')}}">Dashboard Revisor</a>
