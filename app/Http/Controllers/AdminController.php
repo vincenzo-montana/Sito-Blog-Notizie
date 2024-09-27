@@ -13,4 +13,22 @@ class AdminController extends Controller
         $writerRequests = User::where('is_writer', NULL)->get();
         return view('admin.dashboard', compact('adminRequests', 'revisorRequests', 'writerRequests'));
     }
+    public function setadmin(User $user)
+    {
+        $user->is_admin = true;
+        $user->save();
+        return redirect(route('admin.dashboard'))->with('message', "hai reso $user->name amministratore");
+    }
+    public function setrevisor(User $user)
+    {
+        $user->is_admin = true;
+        $user->save();
+        return redirect(route('admin.dashboard'))->with('message', "hai reso $user->name  revisore");
+    }
+    public function setwriter(User $user)
+    {
+        $user->is_admin = true;
+        $user->save();
+        return redirect(route('admin.dashboard'))->with('message', "hai reso $user->name redattore");
+    }
 }

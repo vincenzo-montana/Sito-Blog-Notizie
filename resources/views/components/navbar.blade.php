@@ -66,12 +66,12 @@
                         </li>
                         
                             
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{route('careers')}}">Lavora con noi</a>
-                        </li>
                         
                         @endguest
                         @auth
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{route('careers')}}">Lavora con noi</a>
+                        </li>
                         <span class="nav-link margin-0">
                             <p>
                                 Benvenuto {{Auth::user()->name}}
