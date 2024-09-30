@@ -48,26 +48,28 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     
+                    
+                    
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
+                    
+                    
+                    
+                    @endguest
+                    
                     @if (Auth::user() && Auth::user()->is_revisor)
 
                     <li> 
-                        <a href="{{route('revisor.dashboard')}}">Dashboard Revisor</a>
+                        <a class="navlink" href="{{route('revisor.dashboard')}}">Dashboard Revisor</a>
                     </li>
                         
                     @endif
 
-
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
-                        </li>
-                        
-                            
-                        
-                        @endguest
                         @auth
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{route('careers')}}">Lavora con noi</a>
