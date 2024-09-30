@@ -33,3 +33,8 @@ Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/submit',[PublicController::class, 'careerSsubmit'])->name('careers.submit');
 
 
+//
+Route::middleware('writer')->group(function(){
+    Route::get('/article/create', [ArticleController::class,'create'])->name('article.create');
+    Route::post('/article/store', [ArticleController::class,'store'])->name('article.store');
+});

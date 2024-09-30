@@ -9,4 +9,6 @@ window.addEventListener('scroll', ()=>{
     }else{
         navbar.classList.remove('scrolledNavbar')
     }
+
+    
 })
