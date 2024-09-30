@@ -46,11 +46,21 @@
                     @endauth
                 </ul>
                 <ul class="navbar-nav ms-auto">
-                    @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    
+                    @if (Auth::user() && Auth::user()->is_revisor)
+
+                    <li> 
+                        <a href="{{route('revisor.dashboard')}}">Dashboard Revisor</a>
                     </li>
-                    <li class="nav-item">
+                        
+                    @endif
+
+
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">Register</a>
                         </li>
                         

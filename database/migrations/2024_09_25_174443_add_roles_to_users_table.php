@@ -34,7 +34,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            User::where('email', 'admin@theaulapost.it')->dalete();
+            User::where('email', 'admin@theaulapost.it')->delete();
 
             Schema::table('users', function(Blueprint $table){
                 $table->dropColumn(['is_admin', 'is_revisor', 'is_writer']);

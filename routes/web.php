@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class, 'homepage'])->name('homepage');
@@ -30,10 +31,19 @@ Route::middleware('admin')->group(function(){
     Route::patch('/set-revisor/{user}', [AdminController::class, 'setrevisor'])->name('admin.setrevisor');
     Route::patch('/set-writer/{user}', [AdminController::class, 'setwriter'])->name('admin.setwriter');
 });
+
 // Rotta GET per il Lavora con noi
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 
 //ROTTA POST per il lavora con noi
 Route::post('/careers/submit',[PublicController::class, 'careerSsubmit'])->name('careers.submit');
 
+//ROTTE REVISOR
+
+Route::middleware('revisor')->group(function(){
+    Route::get('/revisor/dashboard', [RevisorController::class, 'dashboard'])->name('revisor.dashboard');
+    Route::post('/revisor/{article}/accept', [RevisorController::class, 'acceptArticle'])->name('revisor.acceptArticle');
+    Route::post('/revisor/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.rejectArticle');
+    Route::post('/revisor/{article}/undo', [RevisorController::class, 'undoArticle'])->name('revisor.undoArticle');
+});
 
