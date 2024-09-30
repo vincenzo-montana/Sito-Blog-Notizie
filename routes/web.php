@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RevisorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class, 'homepage'])->name('homepage');
@@ -25,13 +26,26 @@ Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('us
 //Metodo grouping , gruppo di rotte che verrà protetto dal middelware creato e gestione di una rotta che porterà l'admin alla sua dashboard personale
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    //rotte con metodo post per far diventare un utente admin , revisor o writer
+    Route::patch('/set-admin/{user}', [AdminController::class, 'setadmin'])->name('admin.setadmin');
+    Route::patch('/set-revisor/{user}', [AdminController::class, 'setrevisor'])->name('admin.setrevisor');
+    Route::patch('/set-writer/{user}', [AdminController::class, 'setwriter'])->name('admin.setwriter');
 });
+
 // Rotta GET per il Lavora con noi
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 
 //ROTTA POST per il lavora con noi
 Route::post('/careers/submit',[PublicController::class, 'careerSsubmit'])->name('careers.submit');
 
+//ROTTE REVISOR
+
+Route::middleware('revisor')->group(function(){
+    Route::get('/revisor/dashboard', [RevisorController::class, 'dashboard'])->name('revisor.dashboard');
+    Route::post('/revisor/{article}/accept', [RevisorController::class, 'acceptArticle'])->name('revisor.acceptArticle');
+    Route::post('/revisor/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.rejectArticle');
+    Route::post('/revisor/{article}/undo', [RevisorController::class, 'undoArticle'])->name('revisor.undoArticle');
+});
 
 //
 Route::middleware('writer')->group(function(){
