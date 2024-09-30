@@ -7,11 +7,19 @@
     @VITE(['resources/css/app.css', 'resources/js/app.js']);
     
   </head>
+
   <body>
+
       <main>
-        <x-navbar />
+
+      <x-navbar />
+
         {{$slot}}
+
       </main>
+
       <x-footer />
+
   </body>
+
 </html>
