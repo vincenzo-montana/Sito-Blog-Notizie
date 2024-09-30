@@ -4,7 +4,7 @@
 
             <a class="navbar-brand p-0 custom-text-color" href="#">
                 <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" alt="plane" class="logo">
-                Post Aulab
+                Aulab Post 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{route('archivio')}}">Archivio</a>
                     </li>
-                    {{-- da vedere se funziona e poi non compare sulla navbar ...mah!  --}}
                     @auth
                     @if (Auth::user()->is_admin)
                     <li class="nav-item">

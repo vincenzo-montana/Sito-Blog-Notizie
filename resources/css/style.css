@@ -19,8 +19,14 @@ color: white;
 .btn-custom:hover {
 background-color: #0056b3;
 }
-*{
+h5{
     font-family: 'Switzer', sans-serif;
+}
+.image{
+    background-image: url("/public/images/hatsune_miku_zatsune.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
 }
 :root{
     --rich-black: rgba(3, 7, 30, 1);
@@ -138,7 +144,7 @@ body{
 }
 .navbar{
     display:flex;
-    height: 10vh;
+    height: 7vh;
     transition: 2.5s;
 }
 .custom-text-color{
