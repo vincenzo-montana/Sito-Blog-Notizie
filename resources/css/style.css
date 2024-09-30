@@ -148,7 +148,7 @@ body{
 }
 .navbar{
     display:flex;
-    height: 7vh;
+    height: 10vh;
     transition: 2.5s;
     background-color: (#1a1a2e);
 }
