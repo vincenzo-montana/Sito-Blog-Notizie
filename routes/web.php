@@ -55,4 +55,4 @@ Route::middleware('writer')->group(function(){
 
 // Rotta che gestirà i dati inseriti nella barra di ricerca
 
-Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
+Route::get('/search/article', [ArticleController::class, 'articleSearch'])->name('article.search');

@@ -71,7 +71,10 @@
                         {{-- da controllare perchè restituisce errore 404 --}}
                         {{-- <a href="{{route('user', Auth::user()->name )}}">{{Auth::user()->name}}</a> --}}
                     </div>
+                    
                     <a class="btn btn-outline-secondary" href="{{ route('article.show', $article) }}">Scopri di più</a>
+
+                    
                 </div>
             </div>
         @endforeach
