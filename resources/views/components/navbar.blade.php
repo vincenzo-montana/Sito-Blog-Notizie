@@ -1,9 +1,9 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{route('homepage')}}">Offcanvas dark navbar</a>
+      <a class="navbar-brand" href="{{route('homepage')}}">AulabPost</a>
 
-      <form class="d-flex mt-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form action="{{route('article.search')}}" method="GET" class="d-flex mt-3" role="search">
+        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-secondary" type="submit">Search</button>
       </form>
 
@@ -14,7 +14,7 @@
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
 
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Ombre dell'intelletto</h5>
 
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
