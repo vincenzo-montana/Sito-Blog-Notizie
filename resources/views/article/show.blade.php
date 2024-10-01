@@ -28,5 +28,12 @@
         @endif
 
         </div>
+
+
+        <p class="small text-mutend my-0">
+            @foreach ($aericle->tags as $tag )
+                #{{$tag->name}}
+            @endforeach
+        </p>
     </div>
 </x-main>

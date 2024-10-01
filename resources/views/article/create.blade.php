@@ -71,6 +71,16 @@
             </div>
         </div>
 
+        {{-- aggiunta tags della user 5 salvo --}}
+        <div class="mb-3">
+            <label for="tags" class="form-label"> Tags</label>
+            <input type="text" name="tags" class="form-control" id="tags">
+            <span class="small text-muted fst_muted fst-italic"> Dividi il tag con una virgola - ce scritto come esempio - bysalvo</span>
+            @error('tags')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+
     @endauth
 
 </x-main>
