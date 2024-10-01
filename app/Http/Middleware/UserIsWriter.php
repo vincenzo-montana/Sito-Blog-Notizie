@@ -30,7 +30,7 @@ class UserIswriter
 
         }
 
-        return redirect(Route('homepage'))->whth('alter', 'Non sei Autenticato Cucciola ');
+        return redirect(route('homepage'))->whth('alter', 'Non sei Autenticato Cucciola ');
 
     }
 
