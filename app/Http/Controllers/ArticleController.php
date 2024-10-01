@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Tag;
 
 class ArticleController extends Controller
 {
@@ -49,9 +50,41 @@ class ArticleController extends Controller
             'image'=>$path_image,
             'user_id'=>Auth::user()->id ,
             'category_id'=>$request->category_id,
+            
+            
         ]);
+
+
+        
+        $request->validate([
+            'title'=> 'require|unique:articles|min:5',
+            'subtitle' => 'required|min:5',
+            'body'=>'required|min:10',
+            'image'=>'required|image',
+            'category'=>'required',
+            'tags'=>'required'
+        ]);
+
+
+        $tags = explode(',',$request->tags);
+
+        foreach($tags as $i=>$tag){
+            $tags[$i]= trim($tag);
+        }
+
+        foreach($tags as $tag){
+            $newTag = Tag::updateOrCreate([
+                'name' =>strtolower($tag)
+            ]);
+
+            $article->tags()->attach($newTag);
+        }
+
         return redirect()->route('homepage')->with('message', 'Articolo creato con successo');
     }
+
+
+
     /**
      * Display the specified resource.
      */
