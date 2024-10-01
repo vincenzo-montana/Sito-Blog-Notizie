@@ -1,4 +1,6 @@
 <x-main>
+
+
     {{-- messaggio di non essere autorizzato ad accedere alla dashboard se non si è amministratore  --}}
     @if (session('alert'))
         <div class="alert alert-danger">
@@ -43,7 +45,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="my-5">
+        <h1 class=" mt-5">
             <small> Benvenuto nella homepage</small>
         </h1>
         <!-- Project One -->
@@ -66,8 +68,10 @@
                         <h5>Categoria : <a href="{{ route('bycategory', $article->category) }}">
                             {{ $article->category->name }}</h5>
                         </a>
+                        {{-- da controllare perchè restituisce errore 404 --}}
+                        {{-- <a href="{{route('user', Auth::user()->name )}}">{{Auth::user()->name}}</a> --}}
                     </div>
-                    <a class="btn btn-primary" href="{{ route('article.show', $article) }}">Scopri di più</a>
+                    <a class="btn btn-outline-secondary" href="{{ route('article.show', $article) }}">Scopri di più</a>
                 </div>
             </div>
         @endforeach
@@ -91,6 +95,7 @@
                     <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="d-block w-10"
                         alt="...">
                 </div>
+                
                 <div class="carousel-item">
                     <img src="{{ asset('images/hatsune_miku_zatsune.jpg') }}" class="d-block w-10" alt="...">
                 </div>

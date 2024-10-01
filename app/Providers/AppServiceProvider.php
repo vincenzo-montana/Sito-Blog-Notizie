@@ -20,7 +20,8 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
-     */
+      */
+      //funzioni che rendono disponibili le tabelle in ogni vista
     public function boot(): void
     {
         if(Schema::hasTable('categories')) {

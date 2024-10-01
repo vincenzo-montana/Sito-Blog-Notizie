@@ -14,7 +14,8 @@ class PublicController extends Controller implements HasMiddleware
 {
     public static function middleware()
     {
-        return [new Middleware('auth', except: ['homepage'])];
+        return [new Middleware('auth', except: ['homepage', 'show', 'byCategory', 'byUser', 'artricleSearch'])];
+        
     }
 
     public function careers(){
