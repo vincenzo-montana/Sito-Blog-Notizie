@@ -11,17 +11,19 @@ Route::get('/',[PageController::class, 'homepage'])->name('homepage');
 
 Route::get('/login', [PageController::class, 'login'])->name('login');
 
-//rotta in cui è presente article.create per la raccolta dei dati
-Route::resource('article', ArticleController::class);
+//rotte associate all' article controller
+Route::get('/article/index', [ArticleController::class,'index'])->name('article.index');
+Route::get('/article/{show}', [ArticleController::class,'show'])->name('article.show');
+
 
 //vista in cui sono presenti tutti gli articoli creati
 Route::get('/archivio', [PageController::class,'archivio'])->name('archivio');
 
 //rotta che ci restitusice nella vista bycatgory gli articoli più recenti associati ad ogni categoria 
-Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('bycategory');
+Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');
 
 //rotta che ci restituisce nella vista user gli articoli associati all'utente autenticato 
-Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('user');
+Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('article.byUser');
 
 //Metodo grouping , gruppo di rotte che verrà protetto dal middelware creato e gestione di una rotta che porterà l'admin alla sua dashboard personale
 Route::middleware('admin')->group(function(){
@@ -55,4 +57,4 @@ Route::middleware('writer')->group(function(){
 
 // Rotta che gestirà i dati inseriti nella barra di ricerca
 
-Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
+Route::get('/search/article', [ArticleController::class, 'articleSearch'])->name('article.search');

@@ -29,7 +29,7 @@
                             laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos
                             perspiciatis atque eveniet unde.</p>
                         <div class="d-flex">
-                            <h5>Categoria : <a href="{{ route('bycategory', $article->category) }}">
+                            <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
                                     {{ $article->category->name }}</h5>
                             </a>
                         </div>
