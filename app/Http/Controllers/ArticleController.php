@@ -56,10 +56,22 @@ class ArticleController extends Controller
             'title'=>$request->title,
             'subtitle'=>$request->subtitle,
             'body'=>$request->body,
-            'image'=>$path_image,
+            'image'=>$request->file('image')->store('public/images'),
             'user_id'=>Auth::user()->id ,
             'category_id'=>$request->category_id,
             
+            
+        ]);
+
+
+        
+        $request->validate([
+            'title'=> 'require|unique:articles|min:5',
+            'subtitle' => 'required|min:5',
+            'body'=>'required|min:10',
+            'image'=>'required|image',
+            'category'=>'required',
+            'tags'=>'required'
         ]);
         
 
@@ -76,9 +88,8 @@ class ArticleController extends Controller
 
             $article->tags()->attach($newTag);
         }
-        return redirect()->route('homepage')->with('message', 'Articolo creato con successo');
 
-
+        return redirect(route('homepage'))->with('message', 'Articolo creato con successo');
     }
 
 

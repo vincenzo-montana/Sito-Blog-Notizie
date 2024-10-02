@@ -80,7 +80,8 @@
                                 @enderror
                             </div>
                             <!-- Bottone di invio -->
-                            <button type="submit" class="btn btn-custom w-100">Pubblica Articolo</button>
+                            <button type="submit" class="btn btn-custom w-100 bg-warning">Pubblica Articolo</button>
+
                         </form>
                     </div>
                 </div>
