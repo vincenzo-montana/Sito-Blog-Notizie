@@ -1,20 +1,6 @@
 <x-main>
 
 
-    {{-- messaggio di non essere autorizzato ad accedere alla dashboard se non si è amministratore  --}}
-    @if (session('alert'))
-        <div class="alert alert-danger">
-            {{ session('alert') }}
-        </div>
-    @endif
-    {{-- messaggio di avvenuta creazione articolo --}}
-    @auth
-        @if (session('message'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-        @endif
-    @endauth
     {{-- <div class="container">
         <!-- Page Heading -->
         @auth
@@ -48,6 +34,20 @@
         <h1 class=" mt-5">
             <small> Benvenuto nella homepage</small>
         </h1>
+        {{-- messaggio di non essere autorizzato ad accedere alla dashboard se non si è amministratore  --}}
+        @if (session('alert'))
+            <div class="alert alert-danger">
+                {{ session('alert') }}
+            </div>
+        @endif
+        {{-- messaggio di avvenuta creazione articolo --}}
+        @auth
+            @if (session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+        @endauth
         <!-- Project One -->
         @foreach ($articles as $article)
             <div class="row mb-4">
@@ -66,7 +66,7 @@
                         perspiciatis atque eveniet unde.</p>
                     <div class="d-flex">
                         <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
-                            {{ $article->category->name }}</h5>
+                                {{ $article->category->name }}</h5>
                         </a>
                         {{-- da controllare perchè restituisce errore 404 --}}
                         {{-- <a href="{{route('user', Auth::user()->name )}}">{{Auth::user()->name}}</a> --}}

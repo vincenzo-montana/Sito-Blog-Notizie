@@ -35,14 +35,23 @@ class ArticleController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    { 
+        $request->validate([
+            'title'=> 'required|unique:articles|min:5',
+            'subtitle' => 'required|min:5',
+            'body'=>'required|min:10',
+            'image'=>'required|image',
+            'category_id'=>'required',
+            'tags'=>'required'
+        ]);
+        
         $path_image = '';
         if ($request->hasFile('image')) {
             $name = $request->file('image')->getClientOriginalName();
             $path_image = $request->file('image')->store('images/'.$name .'.jpg', 'public');
 
             // 'title', 'subtitle', 'body', 'image','user_id', 'category_id'
-    }
+        }
         $article = Article::create([
             'title'=>$request->title,
             'subtitle'=>$request->subtitle,
@@ -51,20 +60,8 @@ class ArticleController extends Controller
             'user_id'=>Auth::user()->id ,
             'category_id'=>$request->category_id,
             
-            
         ]);
-
-
         
-        $request->validate([
-            'title'=> 'require|unique:articles|min:5',
-            'subtitle' => 'required|min:5',
-            'body'=>'required|min:10',
-            'image'=>'required|image',
-            'category'=>'required',
-            'tags'=>'required'
-        ]);
-
 
         $tags = explode(',',$request->tags);
 
@@ -79,8 +76,9 @@ class ArticleController extends Controller
 
             $article->tags()->attach($newTag);
         }
-
         return redirect()->route('homepage')->with('message', 'Articolo creato con successo');
+
+
     }
 
 

@@ -13,7 +13,7 @@ Route::get('/login', [PageController::class, 'login'])->name('login');
 
 //rotte associate all' article controller
 Route::get('/article/index', [ArticleController::class,'index'])->name('article.index');
-Route::get('/article/{show}', [ArticleController::class,'show'])->name('article.show');
+Route::get('/article/show/{article}', [ArticleController::class,'show'])->name('article.show');
 
 
 //vista in cui sono presenti tutti gli articoli creati
