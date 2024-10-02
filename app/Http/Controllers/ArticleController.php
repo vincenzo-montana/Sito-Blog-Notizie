@@ -35,31 +35,28 @@ class ArticleController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-
-
+    { 
         $request->validate([
-            'title'=> 'require|unique:articles|min:5',
+            'title'=> 'required|unique:articles|min:5',
             'subtitle' => 'required|min:5',
             'body'=>'required|min:10',
             'image'=>'required|image',
-            'category'=>'required',
+            'category_id'=>'required',
             'tags'=>'required'
         ]);
-
-
+        
         $path_image = '';
         if ($request->hasFile('image')) {
             $name = $request->file('image')->getClientOriginalName();
             $path_image = $request->file('image')->store('images/'.$name .'.jpg', 'public');
 
             // 'title', 'subtitle', 'body', 'image','user_id', 'category_id'
-    }
+        }
         $article = Article::create([
             'title'=>$request->title,
             'subtitle'=>$request->subtitle,
             'body'=>$request->body,
-            'image'=>$path_image,
+            'image'=>$request->file('image')->store('public/images'),
             'user_id'=>Auth::user()->id ,
             'category_id'=>$request->category_id,
             
@@ -81,7 +78,7 @@ class ArticleController extends Controller
             $article->tags()->attach($newTag);
         }
 
-        return redirect()->route('homepage')->with('message', 'Articolo creato con successo');
+        return redirect(route('homepage'))->with('message', 'Articolo creato con successo');
     }
 
 
@@ -128,8 +125,9 @@ class ArticleController extends Controller
     }
 
     public function articleSearch(Request $request){
-        $query = $request->$request->input('query');
-        $articles = Article::class($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+        
+        $query = $request->input('query');
+        $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.search-index', compact('articles', 'query'));
       }
     

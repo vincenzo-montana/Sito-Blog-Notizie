@@ -33,7 +33,7 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2>Richieste per il ruolo di revisore</h2>
+                <h2>Richieste per il ruolo di redattore</h2>
                 <x-requests-table :roleRequests="$writerRequests" role="redattore" />
             </div>
         </div>
@@ -46,4 +46,14 @@
             //your code to be executed after 1 second
         }, delayInMilliseconds);
     </script>
+
+    <hr>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Tutti i tags</h2>
+                <x-metainfo-table :metaInfos="$tags" mateType="tags"/>
+            </div>
+        </div>
+    </div>
 </x-main>

@@ -6,7 +6,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="container my-5">
         <div class="row justify-content-evenly">
             @foreach ($articles as $article)
