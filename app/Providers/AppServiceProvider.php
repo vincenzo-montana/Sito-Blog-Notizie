@@ -2,11 +2,14 @@
 
 namespace App\Providers;
 
+
+use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,5 +36,10 @@ class AppServiceProvider extends ServiceProvider
         if(Schema::hasTable('articles')) {
             view()->share('articles', Article::all());
         };
+
+        if(Schema::hasTable('tags')){
+            $tags = Tag::all();
+            View::share(['tags' => $tags]);
+        }
     }
 }

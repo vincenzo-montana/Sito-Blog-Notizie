@@ -72,12 +72,16 @@
                         {{-- <a href="{{route('user', Auth::user()->name )}}">{{Auth::user()->name}}</a> --}}
                     </div>
                     
-                    <a class="btn btn-outline-secondary" href="{{ route('article.show', $article) }}">Scopri di più</a>
-
-                    
+                    <a class="btn btn-outline-secondary " href="{{ route('article.show', $article) }}">Scopri di più</a>
                 </div>
             </div>
         @endforeach
+        
+        <p class="small text-mutend my-0">
+            @foreach ($article->tags as $tag )
+                #{{$tag->name}}
+            @endforeach
+        </p>
 
 
 

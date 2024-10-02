@@ -47,9 +47,9 @@ class ArticleController extends Controller
             'title'=>$request->title,
             'subtitle'=>$request->subtitle,
             'body'=>$request->body,
-            'image'=>$path_image,
+            'image'=>$request->file('image')->store('public/images'),
             'user_id'=>Auth::user()->id ,
-            'category_id'=>$request->category_id,
+            'category_id'=>$request->category,
             
             
         ]);
@@ -80,7 +80,7 @@ class ArticleController extends Controller
             $article->tags()->attach($newTag);
         }
 
-        return redirect()->route('homepage')->with('message', 'Articolo creato con successo');
+        return redirect(route('homepage'))->with('message', 'Articolo creato con successo');
     }
 
 
