@@ -37,6 +37,10 @@ Route::middleware('admin')->group(function(){
     //Rotte Dashboard admin edit o delete dei tags
     Route::put('/admin/edit/tag/{tag}', [AdminController::class, 'editTag'])->name('admin.editTag');
     Route::delete('/admin/delete/tag/{tag}', [AdminController::class, 'deleteTag'])->name('admin.deleteTag');
+
+    //Rotte Dashboard admin edit o delete delle categorie
+    Route::put('/admin/edit/category/{category}', [AdminController::class, 'editCategory'])->name('admin.editCategory');
+    Route::put('/admin/delete/category/{category}', [AdminController::class, 'deleteCategory'])->name('admin.deleteCategory');
 });
 
 // Rotta GET per il Lavora con noi

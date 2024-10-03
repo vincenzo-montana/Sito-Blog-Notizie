@@ -56,4 +56,13 @@
             </div>
         </div>
     </div>
+    <hr>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2>Tutte le categorie</h2>
+                <x-metainfo-table :metaInfos="$categories" mateType="categorie"/>
+            </div>
+        </div>
+    </div>
 </x-main>
