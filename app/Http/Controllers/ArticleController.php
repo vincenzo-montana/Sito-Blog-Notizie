@@ -61,19 +61,8 @@ class ArticleController extends Controller
             'category_id'=>$request->category_id,
             
             
-        ]);
+        ]);   
 
-
-        
-        $request->validate([
-            'title'=> 'require|unique:articles|min:5',
-            'subtitle' => 'required|min:5',
-            'body'=>'required|min:10',
-            'image'=>'required|image',
-            'category'=>'required',
-            'tags'=>'required'
-        ]);
-        
 
         $tags = explode(',',$request->tags);
 
