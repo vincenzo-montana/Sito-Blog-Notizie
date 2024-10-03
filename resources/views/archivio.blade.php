@@ -9,7 +9,7 @@
         <div class="container">
 
             <!-- Page Heading -->
-            <h1 class="my-5">
+            <h1 class="my-5 pt-5">
                 <small> Tutti gli articoli pubblicati</small>
             </h1>
             <!-- Project One -->

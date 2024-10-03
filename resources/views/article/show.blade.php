@@ -29,7 +29,7 @@
 
         </div>
 
-        @if ($article->$category)
+        @if ($article->category)
                             
             <div class="d-flex">
                     <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
