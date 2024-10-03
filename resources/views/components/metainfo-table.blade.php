@@ -16,15 +16,15 @@
             <td>{{ count($metaInfo->articles) }}</td>
             @if ($metaType == 'tags')
             <td>
-                <form action="{{route('admin.editTag', ['tag', $metainfo])}}" method="POST">
+                <form action="{{route('admin.editTag', ['tag'=> $metaInfo])}}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input type="text" value="{{$metainfo->name}}" name="name" placeholder="Nuovo nome tag" class="form-control w-50 d-inline">
+                    <input type="text" value="{{$metaInfo->name}}" name="name" placeholder="Nuovo nome tag" class="form-control w-50 d-inline">
                     <button type="submit" class="btn btn-secondary">Aggiorna</button>
                 </form>
             </td>
             <td>
-                <form action="{{route('admin.deleteTag', ['tag', $metainfo])}}" method="POST">
+                <form action="{{route('admin.deleteTag', ['tag'=> $metaInfo])}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Elimina</button>

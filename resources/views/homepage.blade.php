@@ -36,14 +36,14 @@
         </h1>
         {{-- messaggio di non essere autorizzato ad accedere alla dashboard se non si è amministratore  --}}
         @if (session('alert'))
-            <div class="alert alert-danger">
+            <div class="alert alert-danger" id="alert">
                 {{ session('alert') }}
             </div>
         @endif
         {{-- messaggio di avvenuta creazione articolo --}}
         @auth
             @if (session('message'))
-                <div class="alert alert-success">
+                <div class="alert alert-success" id="message">
                     {{ session('message') }}
                 </div>
             @endif
@@ -82,46 +82,16 @@
                 #{{$tag->name}}
             @endforeach
         </p>
-
-
-
-
-        {{-- carousel --}}
-        {{-- <div class="container mt-5 p-5 -vh-50 bgHonolulu">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="d-block w-10"
-                        alt="...">
-                </div>
-                
-                <div class="carousel-item">
-                    <img src="{{ asset('images/hatsune_miku_zatsune.jpg') }}" class="d-block w-10" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('images/small-private-plane1-removebg-preview.png') }}" class="d-block w-10"
-                        alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div> --}}
+        {{-- eliminazione messaggi con js  --}}
+        <script>
+            var delayInMilliseconds = 5000; //1 second
+            setTimeout(function() {
+                let message = document.querySelector('#message')
+                let alert = document.querySelector('#alert')
+                message.remove()
+                alert.remove()
+                //your code to be executed after 1 second
+            }, delayInMilliseconds);
+        </script>
 
 </x-main>

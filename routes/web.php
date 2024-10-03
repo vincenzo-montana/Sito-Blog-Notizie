@@ -29,7 +29,7 @@ Route::get('/article/user/{user}', [ArticleController::class, 'user'])->name('ar
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
-    //rotte con metodo post per far diventare un utente admin , revisor o writer
+    //rotte con metodo patch per far diventare un utente admin , revisor o writer
     Route::patch('/set-admin/{user}', [AdminController::class, 'setadmin'])->name('admin.setadmin');
     Route::patch('/set-revisor/{user}', [AdminController::class, 'setrevisor'])->name('admin.setrevisor');
     Route::patch('/set-writer/{user}', [AdminController::class, 'setwriter'])->name('admin.setwriter');
@@ -37,6 +37,8 @@ Route::middleware('admin')->group(function(){
     //Rotte Dashboard admin edit o delete dei tags
     Route::put('/admin/edit/tag/{tag}', [AdminController::class, 'editTag'])->name('admin.editTag');
     Route::delete('/admin/delete/tag/{tag}', [AdminController::class, 'deleteTag'])->name('admin.deleteTag');
+    //rotta per la creazione  di nuove categorie
+    Route::post('/admin/category/store', [AdminController::class, 'storeCategory'])->name('admin.storeCategory');
 });
 
 // Rotta GET per il Lavora con noi
