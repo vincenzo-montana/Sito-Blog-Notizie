@@ -58,19 +58,21 @@
                     </a>
                 </div>
                 <div class="col-md-5">
+
                     <h3>{{ $article->title }}</h3>
                     <h4>{{ $article->subtitle }}</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem
-                        expedita
-                        laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos
-                        perspiciatis atque eveniet unde.</p>
-                    <div class="d-flex">
-                        <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
-                                {{ $article->category->name }}</h5>
-                        </a>
-                        {{-- da controllare perchè restituisce errore 404 --}}
-                        {{-- <a href="{{route('user', Auth::user()->name )}}">{{Auth::user()->name}}</a> --}}
-                    </div>
+                    <p>{{ $article->body}}</p>
+
+                        {{-- @if ($article->$category)
+                            
+                        <div class="d-flex">
+                            <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
+                                    {{ $article->category->name }}</h5></a>
+
+                        @else
+                            <h5 class="small text-muted">Nssuna categoria</h5>
+                        </div>
+                        @endif --}}
                     
                     <a class="btn btn-outline-secondary " href="{{ route('article.show', $article) }}">Scopri di più</a>
                 </div>

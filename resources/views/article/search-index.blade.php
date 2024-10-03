@@ -16,11 +16,18 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $article->title }}</h5>
                             <p class="card-subtitle">{{ $article->subtitle }}</p>
-                            <p class="small text-muted">Categoria:
-                                <a href="{{ route('article.byCategory', $article->category) }}" class="text-capitalize text-muted">
-                                    {{ $article->category->name }}
-                                </a>
-                            </p>
+                            
+                            @if ($article->$category)
+                            
+                            <div class="d-flex">
+                                <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
+                                        {{ $article->category->name }}</h5></a>
+
+                            @else
+                                <h5 class="small text-muted">Nssuna categoria</h5>
+                            </div>
+                             @endif
+
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between align-items-center">

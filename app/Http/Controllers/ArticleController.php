@@ -61,7 +61,7 @@ class ArticleController extends Controller
             'category_id'=>$request->category_id,
             
             
-        ]);
+        ]);   
 
 
 

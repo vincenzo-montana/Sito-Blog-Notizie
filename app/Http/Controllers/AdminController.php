@@ -59,4 +59,19 @@ class AdminController extends Controller
         ]);
         return redirect()->back()->with('message', 'Categoria inserita correttamente');
     }
+
+    public function editCategory(Request $request, Category $category){
+        $request->validate([
+            'name' => 'required|unique:categories',
+        ]);
+        $category->update([
+            'name' => strtolower($request->name),
+        ]);
+        return redirect()->back()->with('message', 'Categoria aggiornata correttamente');
+    }
+
+    public function deleteCategory(Category $category){
+        $category->delete();
+        return redirect()->back()->with('message', 'Categoria eliminata correttamente');
+    }
 }

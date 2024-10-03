@@ -12,6 +12,7 @@ class PageController extends Controller
         
         $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(4)->get();
         return view('homepage', compact('articles'));
+        
          
     }
     public function register(){

@@ -7,7 +7,19 @@
                 </div>
             </div>
         </div>
-    @endforeach
+        
+        @if ($article->$category)
+                            
+                        <div class="d-flex">
+                            <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
+                                    {{ $article->category->name }}</h5></a>
+
+                        @else
+                            <h5 class="small text-muted">Nssuna categoria</h5>
+                        </div>
+                        @endif
+        @endforeach
+
     <p class="small text-mutend my-0">
         @foreach ($article->tags as $tag )
             #{{$tag->name}}
