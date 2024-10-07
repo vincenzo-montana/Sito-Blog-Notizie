@@ -153,14 +153,17 @@ class ArticleController extends Controller
         return redirect()->route('writer.dashboard')->with('message', 'Articolo modificato con successo');
     }
 
-    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Article $article)
     {
-        //
+        foreach ($article->tags as $tag){
+            $article->tags()->detach($tag);
+        }
+        $article->delete();
+        return redirect()->back()->with('message', 'Articolo concellato con successo');
     }
     
     public function byCategory(Category $category){
@@ -178,6 +181,7 @@ class ArticleController extends Controller
         $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.search-index', compact('articles', 'query'));
       }
+
     
 }
 
