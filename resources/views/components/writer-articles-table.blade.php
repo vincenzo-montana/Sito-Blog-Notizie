@@ -37,6 +37,8 @@
                 <a href="{{route('article.edit', $article)}}" class="btn btn-warning text-white">Modifica</a>
 
                 <form action="#" method="g" class="d-inline">
+                    @csrf
+                    @method('DELETE')
                     <button type="submit" class="btn btn-danger">Elimina</button>
                 </form>
             </td>
