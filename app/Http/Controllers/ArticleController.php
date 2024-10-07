@@ -49,6 +49,8 @@ class ArticleController extends Controller
         $path_image = '';
 
         
+
+        
         if ($request->hasFile('image')) {
             $name = $request->file('image')->getClientOriginalName();
             $path_image = $request->file('image')->store('images/'.$name .'.jpg', 'public');
@@ -101,6 +103,11 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
+            if(Auth::user()-> id == $article->user_id){
+                return view('article.edit', compact('article'));
+            }
+            return redirect()->route('homepage')->with('message', 'Accesso non consentito');
+        
             if(Auth::user()-> id == $article->user_id){
                 return view('article.edit', compact('article'));
             }
@@ -162,7 +169,11 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        foreach ($article->tags as $tag){
+            $article->tags()->detach($tag);
+        }
+        $article->delete();
+        return redirect()->back()->with('message', 'Articolo concellato con successo');
     }
     
     public function byCategory(Category $category){
@@ -180,6 +191,7 @@ class ArticleController extends Controller
         $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.search-index', compact('articles', 'query'));
       }
+
     
 }
 
