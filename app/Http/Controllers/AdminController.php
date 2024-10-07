@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Tag;
@@ -75,5 +76,13 @@ class AdminController extends Controller
     public function deleteCategory(Category $category){
         $category->delete();
         return redirect()->back()->with('message', 'Categoria eliminata correttamente');
+    }
+
+    public function destroy(Article $article){
+        foreach ($article->tags as $tag){
+            $article->tags()->detach($tag);
+        }
+        $article->delete();
+        return redirect()->back()->with('message', 'Articolo concellato con successo');
     }
 }
