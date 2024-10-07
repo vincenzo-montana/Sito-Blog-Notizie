@@ -14,7 +14,7 @@
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
 
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Ombre dell'intelletto</h5>
+          <h5 class="offcanvas-title text-warning" id="offcanvasDarkNavbarLabel">Ombre dell'intelletto</h5>
 
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
@@ -25,21 +25,29 @@
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="{{route('homepage')}}">Home</a>
             </li>
+
             @auth
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('article.create')}}">Crea</a>
                 </li>
             @endauth
+
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="{{route('archivio')}}">Archivio</a>
             </li>
+
+            {{-- ADMIN DASHBOARD --}}
+
             @auth
                     @if (Auth::user()->is_admin)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                         </li>
                     @endif
-                @endauth
+
+            @endauth
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -53,8 +61,7 @@
                         </ul>
                       </li>
 
-                    @auth
-                    @endauth
+                    
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     
@@ -71,21 +78,38 @@
                     
                     
                     @endguest
+
+                    {{-- REVISOR DASHBOARD --}}
                     
                     @if (Auth::user() && Auth::user()->is_revisor)
 
-                    <li> 
+                    <li class="nav-item"> 
                         <a class="navlink" href="{{route('revisor.dashboard')}}">Dashboard Revisor</a>
                     </li>
                         
                     @endif
+
+                    {{-- WRITER DASHBOARD --}}
+
+                    @auth
+                        
+                    @if (Auth::user() && Auth::user()->is_writer)
+
+                    <li class="nav-item">
+                        <a class="navlink" href="{{route('writer.dashboard')}}">Dashboard writer</a>
+                    </li>
+
+                    @endif
+
+                    @endauth
+
 
                         @auth
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{route('careers')}}">Lavora con noi</a>
                         </li>
                         <span class="nav-link margin-0">
-                            <p>
+                            <p class="text-warning">
                                 Benvenuto {{Auth::user()->name}}
                             </p>
                         </span>

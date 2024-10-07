@@ -9,8 +9,9 @@
                 @csrf
 
 
-
-                <div class="form-floating mb-3">
+                  {{-- NOME LOGIN COMMENTATO --}}
+                  
+                {{-- <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingInput" name="name" placeholder="name@example.com">
                     <label for="floatingInput">Name</label>
                     @if ($errors->any())
@@ -20,7 +21,7 @@
                     @endforeach
                         </ul>
                 </div>
-                    @endif
+                    @endif --}}
 
 
               <div class="form-floating mb-3">
