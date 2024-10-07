@@ -42,7 +42,6 @@ Route::middleware('admin')->group(function(){
     //Rotte Dashboard admin edit o delete delle categorie
     Route::put('/admin/edit/category/{category}', [AdminController::class, 'editCategory'])->name('admin.editCategory');
     Route::delete('/admin/delete/category/{category}', [AdminController::class, 'deleteCategory'])->name('admin.deleteCategory');
-    
     //rotta per la creazione  di nuove categorie
     Route::post('/admin/category/store', [AdminController::class, 'storeCategory'])->name('admin.storeCategory');
 });

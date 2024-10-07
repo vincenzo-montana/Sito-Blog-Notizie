@@ -33,7 +33,7 @@
                     </td>
                 @else
                     <td>
-                        <form action="{{ route('admin.editCategory', ['category', $metaInfo]) }}" method="POST">
+                        <form action="{{ route('admin.editCategory', ['category'=> $metaInfo]) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <input type="text" value="{{ $metaInfo->name }}" name="name"
@@ -42,7 +42,7 @@
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('admin.deleteCategory', ['category', $metaInfo]) }}" method="POST">
+                        <form action="{{ route('admin.deleteCategory', ['category'=> $metaInfo]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Elimina</button>
