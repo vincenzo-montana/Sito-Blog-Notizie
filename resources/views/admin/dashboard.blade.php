@@ -56,8 +56,9 @@
             <button type="submit" class="btn btn-outline-secondary">Inserisci</button>
         </form>
     </div>
-    <x-metainfo-table :metaInfos="$categories" metaType="categorie"/>
-    
+
+    <x-metainfo-table :metaInfos="$categories" metaType="categories"/>
+
     <script>
         var delayInMilliseconds = 5000; //1 second
         setTimeout(function() {

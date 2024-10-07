@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\WriterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PageController::class, 'homepage'])->name('homepage');
@@ -63,6 +64,7 @@ Route::middleware('revisor')->group(function(){
 Route::middleware('writer')->group(function(){
     Route::get('/article/create', [ArticleController::class,'create'])->name('article.create');
     Route::post('/article/store', [ArticleController::class,'store'])->name('article.store');
+    Route::get('/writer/dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
 });
 
 // Rotta che gestirà i dati inseriti nella barra di ricerca
