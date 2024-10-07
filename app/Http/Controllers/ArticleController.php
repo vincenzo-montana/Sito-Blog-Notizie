@@ -47,6 +47,8 @@ class ArticleController extends Controller
         ]);
         
         $path_image = '';
+
+        
         if ($request->hasFile('image')) {
             $name = $request->file('image')->getClientOriginalName();
             $path_image = $request->file('image')->store('images/'.$name .'.jpg', 'public');
@@ -57,7 +59,7 @@ class ArticleController extends Controller
             'title'=>$request->title,
             'subtitle'=>$request->subtitle,
             'body'=>$request->body,
-            'image'=>$request->file('image')->store('public/images'),
+            'image'=>$request->file('image')->store('images', 'public'),
             'user_id'=>Auth::user()->id ,
             'category_id'=>$request->category_id,
             
