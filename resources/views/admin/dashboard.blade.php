@@ -57,6 +57,7 @@
         </form>
     </div>
     <x-metainfo-table :metaInfos="$categories" metaType="categorie"/>
+    
     <script>
         var delayInMilliseconds = 5000; //1 second
         setTimeout(function() {

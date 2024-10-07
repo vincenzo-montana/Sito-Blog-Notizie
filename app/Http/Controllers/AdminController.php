@@ -52,6 +52,8 @@ class AdminController extends Controller
         $tag->delete();
         return redirect()->back()->with('message', 'Tag eliminato correttamente');
     }
+
+    
     public function storeCategory(Request $request)
     {
         Category::create([
