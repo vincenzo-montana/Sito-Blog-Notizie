@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="mt-2">
-                        <button type="submit" class="btn btn-primary shadow">Modifica l'articolo</button>
+                        <button class="btn btn-primary shadow">Modifica l'articolo</button>
                         <a href="{{route('homepage')}}" class="btn btn-secondary ms-2">Torna alla home</a>
                     </div>
                 </form>

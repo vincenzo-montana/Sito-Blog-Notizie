@@ -12,6 +12,15 @@ font-size: 24px;
 font-weight: bold;
 color: #343a40;
 }
+/* truncate testo del body  */
+.paragraph {
+    Overflow:hidden;
+    line-height: 1.5rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+  }
 /* .btn-custom {
 background-color: #007bff;
 color: white;
