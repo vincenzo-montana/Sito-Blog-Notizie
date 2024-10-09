@@ -8,7 +8,9 @@ use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\WriterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[PageController::class, 'homepage'])->name('homepage');
+Route::get('/',[PageController::class, 'welcome'])->name('welcome');
+
+Route::get('/homepage',[PageController::class, 'homepage'])->name('homepage');
 
 Route::get('/login', [PageController::class, 'login'])->name('login');
 

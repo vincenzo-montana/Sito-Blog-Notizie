@@ -51,7 +51,7 @@
         <!-- Project One -->
         @foreach ($articles as $article)
             <div class="row mb-4">
-                <div class="col-md-7">
+                <div class="col-md-7 ">
                     <a href="#">
                         <img class="img-fluid rounded mb-3 mb-md- cardImg" src="{{ Storage::url($article->image) }}"
                             alt="">
@@ -59,11 +59,11 @@
                 </div>
                 <div class="col-md-5">
 
-                    <h3>{{ $article->title }}</h3>
+                    <h2 class="card-title">{{ $article->title }}</h3>
                     <h4>{{ $article->subtitle }}</h4>
-                    <p>{{ $article->body}}</p>
+                    <p class="card-text">{{ $article->body}}</p>
 
-                        {{-- @if ($article->$category)
+                        {{-- @if ($article->category)
                             
                         <div class="d-flex">
                             <h5>Categoria : <a href="{{ route('article.byCategory', $article->category) }}">
@@ -73,6 +73,8 @@
                             <h5 class="small text-muted">Nssuna categoria</h5>
                         </div>
                         @endif --}}
+
+                        
                     
                     <a class="btn btn-outline-secondary " href="{{ route('article.show', $article) }}">Scopri di più</a>
                 </div>
@@ -95,5 +97,9 @@
                 //your code to be executed after 1 second
             }, delayInMilliseconds);
         </script>
+
+</div>
+
+
 
 </x-main>
