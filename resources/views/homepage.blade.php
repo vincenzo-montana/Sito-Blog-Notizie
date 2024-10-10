@@ -28,7 +28,7 @@
         </div>
 
     @endauth --}}
-    <div class="container">
+    <div class="container pt-5">
 
         <!-- Page Heading -->
         <h1 class=" mt-5">
@@ -74,16 +74,20 @@
                         </div>
                         @endif --}}
                     
-                    <a class="btn btn-outline-secondary " href="{{ route('article.show', $article) }}">Scopri di più</a>
+                    <a class="btn btn-outline-secondary " href="{{ route('article.discover', $article) }}">Scopri di più</a>
                 </div>
             </div>
+
+            <p class="small text-mutend my-0">
+                @foreach ($article->tags as $tag )
+                    #{{$tag->name}}
+                @endforeach
+            </p>
+
+
         @endforeach
         
-        <p class="small text-mutend my-0">
-            @foreach ($article->tags as $tag )
-                #{{$tag->name}}
-            @endforeach
-        </p>
+        
         {{-- eliminazione messaggi con js  --}}
         <script>
             var delayInMilliseconds = 5000; //1 second

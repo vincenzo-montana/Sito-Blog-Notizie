@@ -1,5 +1,7 @@
 body {
 background-color: #f8f9fa;
+height: 100%;
+
 }
 .form-container {
 background-color: #ffffff;
@@ -233,8 +235,8 @@ p{
     border-radius: 12px;
 }
 .cardInfo{
-    height: 35vh;
-    width: 60vh;
+    height: 500px;
+    width: 800px;
 }
 .titleCard{
     font-size:large;
@@ -250,3 +252,51 @@ p{
 .top{
     margin-top: 15vh;
 }
+
+.salvogrande{
+
+   
+height: 40px; 
+    
+    
+}
+
+.containerbycat{
+    display: flex;
+    justify-content: space-between; /* Spaziatura uniforme tra gli articoli */
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+  
+  .item {
+    background-color: #e2e8e9;
+    border-radius: 5%;
+    
+  box-shadow: 10px 10px 5px rgba(148, 141, 141, 0.5); /* ombra nera con sfocatura */
+    
+      
+    
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    box-sizing: border-box; /* Include padding e margini nel calcolo della larghezza */
+    min-height: 200px; /* Imposta una altezza minima per far sì che siano uniformi in altezza */
+  }
+
+  
+  .footergiu{
+    padding: 10px;
+    text-align: center
+  }
+
+  .spaziocontenutosalvo{
+    display: flex;
+    flex-direction: column; /* Dispone il contenuto in colonna (header, main, footer) */
+    min-height: 100vh; /* Assicura che il wrapper occupi almeno l'altezza totale della pagina */
+  }
+
+  .main{
+    flex-grow: 1;
+  }

@@ -8,8 +8,10 @@
     
   </head>
 
-  <body>
+  <body >
+    <div class="spaziocontenutosalvo">
 
+   
       <main>
 
       <x-navbar />
@@ -17,9 +19,9 @@
         {{$slot}}
 
       </main>
-
+    </div>
       <x-footer />
-
+    
   </body>
-
+    
 </html>
