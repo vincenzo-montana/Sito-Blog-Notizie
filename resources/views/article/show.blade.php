@@ -7,8 +7,8 @@
             <h1>{{ $article->title }}</h1>
             {{ $article->subtitle }}
             <img class="cardInfo rounded" src="{{ Storage::url($article->image) }}" alt="sesso e samba">
-            {{ $article->body }}
-            <p>{{ $article->body }}</p>
+            <p class="pt-5">{{ $article->body }}</p>
+            
 
             @if (Auth::user() && Auth::user()->is_revisor)
                 <div class="container my-5">
@@ -44,4 +44,5 @@
             @endforeach
         </p>
     </div>
+    
 </x-main>

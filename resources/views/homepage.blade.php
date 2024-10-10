@@ -37,4 +37,8 @@
             }, delayInMilliseconds);
         </script>
 
+</div>
+
+
+
 </x-main>

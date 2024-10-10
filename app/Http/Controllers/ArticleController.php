@@ -97,6 +97,10 @@ class ArticleController extends Controller
         return view('article.show' ,compact('article'));
     }
 
+    public function discover(Article $article)
+    {
+        return view('article.discover' ,compact('article'));
+    }
     /**
      * Show the form for editing the specified resource.
      */

@@ -8,12 +8,15 @@ use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\WriterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[PageController::class, 'homepage'])->name('homepage');
+Route::get('/',[PageController::class, 'welcome'])->name('welcome');
+
+Route::get('/homepage',[PageController::class, 'homepage'])->name('homepage');
 
 Route::get('/login', [PageController::class, 'login'])->name('login');
 
 //rotte associate all' article controller
 Route::get('/article/index', [ArticleController::class,'index'])->name('article.index');
+Route::get('/article/discover/{article}', [ArticleController::class,'discover'])->name('article.discover');
 Route::get('/article/show/{article}', [ArticleController::class,'show'])->name('article.show');
 
 
@@ -77,7 +80,7 @@ Route::middleware('writer')->group(function(){
     // DASHBOARD WRITER
 
     Route::get('/writer/dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
-    Route::get('/article/edit/{article}', [ArticleController::class, 'edit.'])->name('article.edit');
+    Route::get('/article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit');
     Route::put('/article/update/{article}', [ArticleController::class, 'update'])->name('article.update');
     Route::delete('/article/destroy/{article}', [ArticleController::class, 'destroy'])->name('article.destroy');
 });
