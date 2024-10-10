@@ -14,7 +14,7 @@
                             <!-- Titolo Articolo -->
                             <div class="mb-3">
                                 <label for="title" class="form-label">Titolo</label>
-                                <input type="text" class="form-control" id="title" name="title"
+                                <input type="text" class="form-control" name="title"
                                     placeholder="Inserisci il titolo dell'articolo" value="{{ old('name') }}" required>
                                 @error('title')
                                     {{ $message }}

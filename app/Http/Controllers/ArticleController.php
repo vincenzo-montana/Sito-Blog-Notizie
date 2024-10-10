@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
+use illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -49,6 +50,8 @@ class ArticleController extends Controller
         $path_image = '';
 
         
+
+        
         if ($request->hasFile('image')) {
             $name = $request->file('image')->getClientOriginalName();
             $path_image = $request->file('image')->store('images/'.$name .'.jpg', 'public');
@@ -61,9 +64,8 @@ class ArticleController extends Controller
             'body'=>$request->body,
             'image'=>$request->file('image')->store('images', 'public'),
             'user_id'=>Auth::user()->id ,
-            'category_id'=>$request->category_id,
-            
-            
+            'category_id'=>$request->category_id,         
+            'slug' => Str::slug($request->title),
         ]);   
 
 
@@ -110,6 +112,11 @@ class ArticleController extends Controller
             }
             return redirect()->route('homepage')->with('message', 'Accesso non consentito');
         
+            if(Auth::user()-> id == $article->user_id){
+                return view('article.edit', compact('article'));
+            }
+            return redirect()->route('homepage')->with('message', 'Accesso non consentito');
+        
     }
 
     /**
@@ -132,6 +139,7 @@ class ArticleController extends Controller
             'subtitle' => $request->subtitle,
             'body' => $request->body,
             'category_id' => $request->category,
+            'slug' => Str::slug($request->title),
         ]);
 
         if ($request->hasFile('image')) {
@@ -159,6 +167,7 @@ class ArticleController extends Controller
         return redirect()->route('writer.dashboard')->with('message', 'Articolo modificato con successo');
     }
 
+    
 
     /**
      * Remove the specified resource from storage.

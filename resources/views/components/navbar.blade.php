@@ -88,7 +88,7 @@
 
                         @if (Auth::user() && Auth::user()->is_writer)
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('writer.dashboard') }}">Dashboard writer</a>
+                                <a class="nav-link" href="{{ route('writer.dashboard') }}">Dashboard Writer</a>
                             </li>
                         @endif
                         {{-- ADMIN DASHBOARD --}}

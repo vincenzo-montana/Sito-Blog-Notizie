@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     //funzione che ci ritorna nella home gli ultimi 4 articoli creati
+    public function welcome(){
+        return view('welcome');
+    }
     public function homepage(){
         
         $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(4)->get();
