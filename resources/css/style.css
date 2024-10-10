@@ -35,9 +35,10 @@ background-color: #0056b3;
 .image{
     background-image: url("/public/images/hatsune_miku_zatsune.jpg");
     background-size: contain;
-    background-repeat: no-repeat;
-    
+    background-repeat: no-repeat;   
 }
+
+
 :root{
     --rich-black: rgba(3, 7, 30, 1);
     --chocolate-cosmos: rgba(55, 6, 23, 1);

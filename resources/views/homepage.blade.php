@@ -25,6 +25,7 @@
         <x-article-card :article="$article"/>
         @endforeach
         {{-- eliminazione messaggi con js  --}}
+        
         <script>
             var delayInMilliseconds = 5000; //1 second
             setTimeout(function() {
