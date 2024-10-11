@@ -3,7 +3,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class=" mt-5">
+        <h1 class=" height">
             <small> Benvenuto nella homepage</small>
         </h1>
         {{-- messaggio di non essere autorizzato ad accedere alla dashboard se non si è amministratore  --}}

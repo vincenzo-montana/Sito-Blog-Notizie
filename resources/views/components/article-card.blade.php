@@ -21,7 +21,7 @@
                             href="{{ route('article.byUser', $article->user) }}">{{ $article->user->name }}</a>
                     </p>
                 </div>
-                <a class="btn btn-outline-secondary ms-3" href="{{ route('article.show', $article) }}">Scopri di più</a>
+                <a class="btn btn-outline-secondary ms-3" href="{{ route('article.discover', $article) }}">Scopri di più</a>
             </div>
             <div class="d-flex justify-content-evenly flex-column">
                 <div class="d-flex">

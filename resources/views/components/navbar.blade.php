@@ -4,7 +4,7 @@
 
         <form action="{{ route('article.search') }}" method="GET" class="d-flex mt-3" role="search">
             <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
+            <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"

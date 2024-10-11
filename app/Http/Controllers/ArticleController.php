@@ -145,7 +145,7 @@ class ArticleController extends Controller
         if ($request->hasFile('image')) {
             Storage::delete($article->image);
             $article->update([
-                'image' => $request->file('image')->store('public/images')
+                'image' => $request->file('image')->store('images/public')
             ]);
         }
 

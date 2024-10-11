@@ -32,7 +32,7 @@
 
             <td>
 
-                <a href="{{route('article.show', $article)}}" class="btn btn-secondary">Leggi</a>
+                <a href="{{route('article.discover', $article)}}" class="btn btn-secondary">Leggi</a>
 
                 <a href="{{route('article.edit', $article)}}" class="btn btn-warning text-white">Modifica</a>
 
